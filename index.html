@@ -28,7 +28,7 @@
 
   <!-- All task section -->
 
-  <div class="row row-cols-1 row-cols-md-3 g-4 mt-2" id="table_body">
+  <div class="row row-cols-1 row-cols-md-3 g-4 mt-2 all-task" id="table_body">
   </div>
 
   <div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
@@ -40,11 +40,11 @@
         </div>
         <div class="modal-body">
           <div class="form-floating mb-3">
-            <input type="email" id="title" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="text" id="title" class="form-control" id="floatingInput" required placeholder="name@example.com">
             <label for="floatingInput">Task</label>
           </div>
           <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" id="task-des"
+            <textarea class="form-control" placeholder="Leave a comment here" required id="task-des"
               style="height: 100px"></textarea>
             <label for="task-des">Description</label>
           </div>

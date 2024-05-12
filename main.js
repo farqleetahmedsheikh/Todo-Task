@@ -29,7 +29,7 @@ themeToggle.addEventListener("click", () => {
 var titl;
 var desc;
 
-// this function populating the table and store the values in local store and also display on web
+// this function refresh the view area when ever user add or delete it's task
 
 function update() {
   let table = document.getElementById("table_body");
@@ -44,19 +44,18 @@ function update() {
     itemJSONArrayStr = localStorage.getItem("itemJSON");
     itemJSONArray = JSON.parse(itemJSONArrayStr);
   }
-  // assing values on web table
+  // assing values on web view area
 
   itemJSONArray.forEach((element, index) => {
     str += `
-    <div class="col task" id="task">
-      <div class="card h-100">
+    <div class="col task">
+      <div class="card h-50">
         <div class="card-body">
           <h5 class="card-title">${element[0]}</h5> 
-          <button type="button" class="btn-close"  onlick=deleted(${index})></button>
           <p class="card-text">${element[1]}.</p>
         </div>
         <div class="card-footer">
-          <small class="text-body-secondary"><button class="btn btn-primary" id="del-task" onlick=deleted(${index})>Delete</button></small>
+          <small class="text-body-secondary"><button class="btn btn-primary" id="del-task" onClick=deleted(${index})>Delete</button></small>
         </div>
       </div>
     </div>`;
@@ -64,7 +63,7 @@ function update() {
   table.innerHTML = str;
 }
 
-//this funtcion will get values or data from user
+//this funtcion will get the data from user and update the fields to show task to user on the view area
 
 function getAndUpdate() {
   titl = document.getElementById("title").value;
@@ -79,19 +78,9 @@ function getAndUpdate() {
     itemJSONArray.push([titl, desc]);
     localStorage.setItem("itemJSON", JSON.stringify(itemJSONArray));
   }
+  // calling the function to update data
   update();
-  refreshWeb();
 }
-
-// this function will refresh website
-
-function refreshWeb() {
-  window.location.reload();
-}
-
-document.getElementById("add-btn").addEventListener("click", getAndUpdate);
-update();
-
 // this function will delete the data store in local store as the wish of user
 
 function deleted(index) {
@@ -100,8 +89,9 @@ function deleted(index) {
   itemJSONArray = JSON.parse(itemJSONArrayStr);
   itemJSONArray.splice(index, 1);
   localStorage.setItem("itemJSON", JSON.stringify(itemJSONArray));
+  // calling the function to update data
   update();
-  refreshWeb();
 }
+document.getElementById("add-btn").addEventListener("click", getAndUpdate);
 
-document.getElementById("del-task").addEventListener("click", deleted);
+update();
