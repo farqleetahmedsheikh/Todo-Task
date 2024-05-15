@@ -31,7 +31,7 @@ var desc;
 
 // this function refresh the view area when ever user add or delete it's task
 
-function update() {
+const update = () => {
   let table = document.getElementById("table_body");
   let str = "";
 
@@ -61,11 +61,11 @@ function update() {
     </div>`;
   });
   table.innerHTML = str;
-}
+};
 
 //this funtcion will get the data from user and update the fields to show task to user on the view area
 
-function getAndUpdate() {
+const getAndUpdate = () => {
   titl = document.getElementById("title").value;
   desc = document.getElementById("task-des").value;
   if (localStorage.getItem("itemJSON") == null) {
@@ -83,7 +83,7 @@ function getAndUpdate() {
 }
 // this function will delete the data store in local store as the wish of user
 
-function deleted(index) {
+const deleted = (index) => {
   console.log(index);
   itemJSONArrayStr = localStorage.getItem("itemJSON");
   itemJSONArray = JSON.parse(itemJSONArrayStr);
