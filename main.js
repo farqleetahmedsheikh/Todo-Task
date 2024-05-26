@@ -3,33 +3,35 @@
 // Select the theme-toggle button and body element
 const themeToggle = document.getElementById("theme-toggle");
 const body = document.body;
-
+const user = document.getElementById("welcome-screen");
+let username = "Farqleet Ahmed Sheikh";
 // Check the user's preference from local storage (if available)
-const currentTheme = localStorage.getItem("theme");
+// const currentTheme = localStorage.getItem("theme");
 
 // Set the initial theme
-if (currentTheme) {
-  body.classList.add(currentTheme);
-}
+// if (currentTheme) {
+//   body.classList.add(currentTheme);
+// }
 
 // Add a click event listener to the theme-toggle button
-themeToggle.addEventListener("click", () => {
-  // Toggle the theme class on the body element
-  body.classList.toggle("dark-mode");
+// themeToggle.addEventListener("click", () => {
+// Toggle the theme class on the body element
+//   body.classList.toggle("dark-mode");
 
-  // Update the user's preference in local storage
-  const theme = body.classList.contains("dark-mode")
-    ? "dark-mode"
-    : "light-mode";
-  localStorage.setItem("theme", theme);
-});
+// Update the user's preference in local storage
+//   const theme = body.classList.contains("dark-mode")  ? "dark-mode"
+//     : "light-mode";
+//   localStorage.setItem("theme", theme);
+// });
 
 // Adding Functionallity to the buttons of todo list
 
-var titl;
-var desc;
+let titl;
+let desc;
 
 // this function refresh the view area when ever user add or delete it's task
+
+user.innerText = `Welcome ${username}`;
 
 const update = () => {
   let table = document.getElementById("table_body");
@@ -46,13 +48,13 @@ const update = () => {
   }
   // assing values on web view area
 
-  itemJSONArray.forEach((element, index) => {
+  itemJSONArray.forEach((ele, index) => {
     str += `
     <div class="col task">
-      <div class="card h-50">
+      <div class="card shadow-lg mx-3" style="height:250px;">
         <div class="card-body">
-          <h5 class="card-title">${element[0]}</h5> 
-          <p class="card-text">${element[1]}.</p>
+          <h5 class="card-title">${ele[0]}</h5> 
+          <p class="card-text">${ele[1]}.</p>
         </div>
         <div class="card-footer">
           <small class="text-body-secondary"><button class="btn btn-primary" id="del-task" onClick=deleted(${index})>Delete</button></small>
@@ -80,7 +82,7 @@ const getAndUpdate = () => {
   }
   // calling the function to update data
   update();
-}
+};
 // this function will delete the data store in local store as the wish of user
 
 const deleted = (index) => {
@@ -91,7 +93,7 @@ const deleted = (index) => {
   localStorage.setItem("itemJSON", JSON.stringify(itemJSONArray));
   // calling the function to update data
   update();
-}
+};
 document.getElementById("add-btn").addEventListener("click", getAndUpdate);
 
 update();

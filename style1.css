@@ -4,11 +4,6 @@
   box-sizing: border-box;
 }
 
-:root {
-  --light-color: #f2f2f2;
-  --dark-color: #000;
-}
-
 @font-face {
   font-family: myFirstFont;
   src: url(sansation_light.woff);
@@ -16,15 +11,6 @@
 
 body {
   overflow-x: hidden;
-}
-
-.nav-bar {
-  background-color: transparent;
-  border-bottom: 2px solid var(--dark-color);
-  display: flex;
-  height: 70px;
-  align-items: center;
-  /* justify-content: space-evenly; */
 }
 
 /* The switch - the box around the slider */
@@ -90,23 +76,22 @@ input:checked+.slider:before {
   border-radius: 50%;
 }
 
-body.light-mode {
-  background-color: #f2f2f2;
+.light-mode {
+  background-color: #fff;
   color: #000;
 }
 
-body.dark-mode {
+.dark-mode {
   background-color: #000;
   color: #fff;
 }
 
 .card-body h5 {
   display: inline-block !important;
-  /* margin-left: auto; */
 }
 
-.all-task {
-  margin: auto;
+.display-task {
+  overflow: scroll;
   width: 100vw;
   height: 90vh;
 }
@@ -126,21 +111,7 @@ input {
   font-weight: 500;
 }
 
-#task-des {
-  height: 220px;
-}
-
-th {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-
 .foot {
-  /* position: absolute;
-  bottom: 0; */
-  /* padding-top: 27px; */
-  margin-top: 30px;
   width: 100vw;
   height: 30px;
   text-align: center;
@@ -148,45 +119,16 @@ th {
   font-size: larger;
   font-weight: 500;
   color: #6e71d9;
-  background-color: transparent;
+  background-color: #000;
 }
 
 /* Making site responsive */
 
 @media only screen and (max-width: 450px) and (min-width: 350px) {
-  .all-task {
+  .display-task {
     display: grid;
     justify-content: center;
     align-items: center;
-  }
-
-  #main-task {
-    height: 400px;
-    width: 330px;
-    margin: 0px;
-    margin-top: 20px;
-    border-radius: 15px;
-  }
-
-  #create-task {
-    width: 330px;
-    height: 420px;
-    margin: 0px;
-    margin-top: 20px;
-  }
-
-  #clock {
-    height: 20px;
-    width: 85px;
-    font-size: 15px;
-    border-radius: 1rem;
-  }
-
-  #date {
-    height: 20px;
-    width: 75px;
-    font-size: 15px;
-    border-radius: 1rem;
   }
 
   input {
@@ -194,21 +136,6 @@ th {
     height: 50px;
     font-size: medium;
     font-weight: 300;
-  }
-
-  #task-des {
-    height: 140px;
-  }
-
-  th {
-    padding-left: 8px;
-    padding-right: 8px;
-  }
-
-  #del-task {
-    height: 30px;
-    width: 50px;
-    font-size: 12px;
   }
 
   .foot {
@@ -221,10 +148,5 @@ th {
     font-weight: 400;
     color: #6e71d9;
     background-color: transparent;
-  }
-
-  #acc-pro {
-    height: 50px;
-    width: 50px;
   }
 }
