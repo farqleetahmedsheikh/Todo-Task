@@ -93,7 +93,7 @@ input:checked+.slider:before {
 .display-task {
   overflow: scroll;
   width: 100vw;
-  height: 90vh;
+  height: 80vh;
 }
 
 h6 {

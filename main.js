@@ -86,7 +86,6 @@ const getAndUpdate = () => {
 // this function will delete the data store in local store as the wish of user
 
 const deleted = (index) => {
-  console.log(index);
   itemJSONArrayStr = localStorage.getItem("itemJSON");
   itemJSONArray = JSON.parse(itemJSONArrayStr);
   itemJSONArray.splice(index, 1);
